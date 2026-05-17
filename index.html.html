@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موكب يوسف الزهراء الحسيني</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0d0d0d;
+    --dark: #141414;
+    --panel: #1a1a1a;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dim: #8a6f2e;
+    --gold-pale: #f5e6c0;
+    --white: #f0ece4;
+    --white-dim: #b8b0a0;
+    --red-dark: #1a0505;
+    --font-title: 'Scheherazade New', serif;
+    --font-body: 'Noto Naskh Arabic', serif;
+    --font-classic: 'Amiri', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+
+  /* ═══════════════════════════════════ TEXTURE OVERLAY ═══════════════════════════════════ */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ═══════════════════════════════════ NAVBAR ═══════════════════════════════════ */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8,8,8,0.97);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    backdrop-filter: blur(10px);
+    padding: 0 1.5rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-logo span { color: var(--white-dim); font-size: 0.8rem; font-family: var(--font-body); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    transition: color 0.2s;
+    font-family: var(--font-body);
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--deep);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 1rem 1.5rem;
+    gap: 0.25rem;
+  }
+  .mobile-menu a {
+    color: var(--white-dim);
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    font-family: var(--font-body);
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu.open { display: flex; }
+
+  /* ═══════════════════════════════════ HERO ═══════════════════════════════════ */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 1.5rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,168,76,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 40% at 50% 80%, rgba(26,5,5,0.5) 0%, transparent 70%),
+      linear-gradient(180deg, #0d0d0d 0%, #080808 50%, #0d0505 100%);
+  }
+
+  .hero-ornament-top {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+    opacity: 0.6;
+  }
+
+  .hero-ornament-top::before,
+  .hero-ornament-top::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--gold-dim);
+    transform: rotate(45deg);
+  }
+  .hero-ornament-top::before { left: 50%; margin-left: -4px; }
+
+  .bismillah {
+    position: relative;
+    font-family: var(--font-title);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold-dim);
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    animation: fadeDown 1s ease both;
+  }
+
+  .hero-divider {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+    animation: fadeIn 1.2s ease both;
+  }
+
+  .hero-title {
+    position: relative;
+    font-family: var(--font-title);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+    animation: fadeDown 1s ease 0.2s both;
+  }
+
+  .hero-subtitle {
+    font-family: var(--font-classic);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--white-dim);
+    margin-bottom: 3rem;
+    animation: fadeDown 1s ease 0.4s both;
+  }
+
+  .hero-slogan {
+    font-family: var(--font-title);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    color: var(--white);
+    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease 0.6s both;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-slogan::before, .hero-slogan::after {
+    content: '❧';
+    color: var(--gold);
+    margin: 0 0.75rem;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+  .hero-meta {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.05em;
+    animation: fadeIn 1.2s ease 0.8s both;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeIn 1.2s ease 1s both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--black);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,168,76,0.3);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.4);
+    padding: 0.8rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.08);
+  }
+
+  /* ═══════════════════════════════════ SECTIONS ═══════════════════════════════════ */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-tag {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .section-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1rem auto 0;
+  }
+
+  /* ═══════════════════════════════════ ABOUT ═══════════════════════════════════ */
+  #about { background: var(--deep); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--white-dim);
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    text-align: justify;
+  }
+
+  .about-cards {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .info-card {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-right: 3px solid var(--gold);
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .info-card-icon {
+    font-size: 1.5rem;
+    color: var(--gold);
+    min-width: 2rem;
+    text-align: center;
+  }
+
+  .info-card-content strong {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+  }
+
+  .info-card-content span {
+    font-size: 0.88rem;
+    color: var(--white-dim);
+  }
+
+  .quote-block {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.15);
+    text-align: center;
+    position: relative;
+  }
+
+  .quote-block::before {
+    content: '﴿';
+    position: absolute;
+    top: -1px;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .quote-block p {
+    font-family: var(--font-classic);
+    font-size: 1.05rem;
+    color: var(--gold-pale);
+    font-style: italic;
+  }
+
+  /* ═══════════════════════════════════ SCHEDULES ═══════════════════════════════════ */
+  #schedules { background: var(--black); }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .schedule-card {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.1);
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .schedule-card:hover {
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-3px);
+  }
+
+  .schedule-card-header {
+    background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .schedule-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--gold-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .schedule-card-header h3 {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    line-height: 1.3;
+  }
+
+  .schedule-card-body {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .schedule-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.88rem;
+  }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-row .label { color: var(--white-dim); }
+  .schedule-row .value { color: var(--gold); font-family: var(--font-classic); }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    font-size: 0.75rem;
+    margin: 0.15rem;
+  }
+
+  /* ═══════════════════════════════════ OCCASIONS ═══════════════════════════════════ */
+  #occasions { background: var(--deep); }
+
+  .occasions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .occasion-item {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .occasion-item:hover {
+    border-color: var(--gold-dim);
+    background: rgba(201,168,76,0.05);
+  }
+
+  .occasion-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .occasion-item h4 {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .occasion-item p {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    line-height: 1.5;
+  }
+
+  /* ═══════════════════════════════════ SERVICE ═══════════════════════════════════ */
+  #service { background: var(--black); }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.1);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.25); }
+
+  .service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-card h3 {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card p {
+    font-size: 0.88rem;
+    color: var(--white-dim);
+    line-height: 1.6;
+  }
+
+  /* ═══════════════════════════════════ JOIN ═══════════════════════════════════ */
+  #join { background: var(--deep); }
+
+  .join-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .join-info h3 {
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .join-info p {
+    color: var(--white-dim);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .join-features {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .join-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.6rem 0;
+    color: var(--white-dim);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .join-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.7rem;
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .form-card {
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.12);
+    padding: 2rem;
+  }
+
+  .form-title {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--white-dim);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    color: var(--white);
+    padding: 0.7rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold-dim);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .form-group select option { background: var(--dark); }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--black);
+    border: none;
+    padding: 0.9rem;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    box-shadow: 0 6px 20px rgba(201,168,76,0.25);
+  }
+
+  .success-msg {
+    display: none;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 1rem;
+    text-align: center;
+    font-family: var(--font-title);
+    margin-top: 1rem;
+  }
+
+  /* ═══════════════════════════════════ DONATE ═══════════════════════════════════ */
+  #donate {
+    background: var(--black);
+    text-align: center;
+  }
+
+  .donate-box {
+    max-width: 620px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 3rem 2rem;
+    position: relative;
+  }
+
+  .donate-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .donate-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+
+  .donate-box h3 {
+    font-family: var(--font-title);
+    font-size: 1.6rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .donate-box p {
+    color: var(--white-dim);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .donate-hadith {
+    font-family: var(--font-classic);
+    font-style: italic;
+    color: var(--gold-pale);
+    font-size: 1rem;
+    padding: 1rem;
+    background: rgba(201,168,76,0.05);
+    border-right: 2px solid var(--gold-dim);
+    text-align: right;
+    margin-bottom: 2rem;
+  }
+
+  .donate-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+    color: var(--black);
+    padding: 0.9rem 3rem;
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+  }
+
+  .donate-btn:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(201,168,76,0.3);
+  }
+
+  /* ═══════════════════════════════════ CONTACT ═══════════════════════════════════ */
+  #contact { background: var(--deep); }
+
+  .contact-center {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-center p {
+    color: var(--white-dim);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  .instagram-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+    color: white;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    transition: all 0.3s;
+    margin-bottom: 2rem;
+  }
+
+  .instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(253,29,29,0.3);
+  }
+
+  .instagram-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+  }
+
+  .contact-address {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--panel);
+    border: 1px solid rgba(201,168,76,0.1);
+    text-align: center;
+  }
+
+  .contact-address p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-address strong {
+    color: var(--gold);
+    font-family: var(--font-title);
+  }
+
+  /* ═══════════════════════════════════ DIVIDER ═══════════════════════════════════ */
+  .gold-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  .ornament-divider {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--gold-dim);
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+  }
+
+  /* ═══════════════════════════════════ FOOTER ═══════════════════════════════════ */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-name {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .footer-bottom {
+    font-size: 0.75rem;
+    color: var(--gold-dim);
+    opacity: 0.6;
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════ ANIMATIONS ═══════════════════════════════════ */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .animate-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ═══════════════════════════════════ RESPONSIVE ═══════════════════════════════════ */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .about-grid,
+    .join-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    section { padding: 3.5rem 1.2rem; }
+
+    .hero-title { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+    .hero-slogan { font-size: 1.2rem; }
+
+    .donate-box { padding: 2rem 1.2rem; }
+
+    .instagram-btn { padding: 0.9rem 2rem; font-size: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .schedule-grid { grid-template-columns: 1fr; }
+    .occasions-grid { grid-template-columns: 1fr 1fr; }
+    .service-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════ NAVBAR ══════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      ☽ موكب يوسف الزهراء الحسيني
+      <span>الناصرية – ذي قار</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">عن الموكب</a></li>
+      <li><a href="#schedules">المجالس</a></li>
+      <li><a href="#occasions">المناسبات</a></li>
+      <li><a href="#service">الخدمة</a></li>
+      <li><a href="#join">الانضمام</a></li>
+      <li><a href="#donate">التبرعات</a></li>
+      <li><a href="#contact">التواصل</a></li>
+    </ul>
+    <button class="hamburger" id="menuBtn" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="closeMobile()">عن الموكب</a>
+    <a href="#schedules" onclick="closeMobile()">مواعيد المجالس</a>
+    <a href="#occasions" onclick="closeMobile()">المناسبات</a>
+    <a href="#service" onclick="closeMobile()">الخدمة الحسينية</a>
+    <a href="#join" onclick="closeMobile()">الانضمام</a>
+    <a href="#donate" onclick="closeMobile()">التبرعات</a>
+    <a href="#contact" onclick="closeMobile()">التواصل</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament-top"></div>
+
+  <p class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+
+  <div class="hero-divider"></div>
+
+  <h1 class="hero-title">موكب يوسف الزهراء الحسيني</h1>
+  <p class="hero-subtitle">في خدمة سيد الشهداء الإمام الحسين عليه السلام</p>
+
+  <div class="hero-divider"></div>
+
+  <h2 class="hero-slogan">خدمة الحسين شرف لا ينتهي</h2>
+
+  <p class="hero-meta">الناصرية — ذي قار — العراق &nbsp;|&nbsp; تأسس عام 1444 هـ / 2023 م</p>
+
+  <div class="hero-cta">
+    <a href="#about" class="btn-primary">تعرف على الموكب</a>
+    <a href="#join" class="btn-secondary">انضم إلينا</a>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">التعريف بالموكب</span>
+      <h2 class="section-title">عن موكب يوسف الزهراء الحسيني</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text animate-in">
+        <p>
+          موكب يوسف الزهراء الحسيني موكبٌ ديني رسمي يحمل راية الولاء لآل بيت النبوة الكرام عليهم السلام، تأسس عام 2023 ميلادي في مدينة الناصرية العريقة، محافظة ذي قار، جنوب العراق.
+        </p>
+        <p>
+          يسعى الموكب إلى إحياء شعائر الحسين عليه السلام وإعلاء كلمة الحق والعدل التي استشهد من أجلها سيد الشهداء على أرض كربلاء المقدسة.
+        </p>
+        <p>
+          يضم الموكب نخبة من الشباب المؤمن المتطوع الذي يبذل جهوده وإمكاناته في سبيل خدمة الزائرين وإقامة المجالس الحسينية وإحياء المناسبات الدينية بكل تبجيل واحترام.
+        </p>
+
+        <div class="quote-block animate-in">
+          <p>"إِنِّي لَا أَرَى الْمَوْتَ إِلَّا سَعَادَةً وَالْحَيَاةَ مَعَ الظَّالِمِينَ إِلَّا بَرَمًا"</p>
+          <small style="color:var(--gold-dim);display:block;margin-top:0.5rem;font-size:0.82rem;">— الإمام الحسين عليه السلام</small>
+        </div>
+      </div>
+
+      <div class="about-cards animate-in">
+        <div class="info-card">
+          <div class="info-card-icon">🕌</div>
+          <div class="info-card-content">
+            <strong>الموقع</strong>
+            <span>الناصرية – محافظة ذي قار – جمهورية العراق</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">📅</div>
+          <div class="info-card-content">
+            <strong>سنة التأسيس</strong>
+            <span>2023 م / 1444 هـ</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">☽</div>
+          <div class="info-card-content">
+            <strong>التبعية العقدية</strong>
+            <span>مدرسة أهل البيت النبوي الشريف عليهم السلام</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">❤</div>
+          <div class="info-card-content">
+            <strong>الرسالة</strong>
+            <span>إحياء شعائر الحسين وخدمة زائري سيد الشهداء</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">🕯</div>
+          <div class="info-card-content">
+            <strong>الشعار</strong>
+            <span>خدمة الحسين شرف لا ينتهي</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ SCHEDULES ══════════════════════════════════ -->
+<section id="schedules">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">التقويم الديني</span>
+      <h2 class="section-title">مواعيد المجالس الحسينية</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="schedule-grid">
+      <!-- مجلس الجواد -->
+      <div class="schedule-card animate-in">
+        <div class="schedule-card-header">
+          <div class="schedule-icon">🌙</div>
+          <h3>إحياء استشهاد الإمام الجواد عليه السلام</h3>
+        </div>
+        <div class="schedule-card-body">
+          <div class="schedule-row">
+            <span class="label">التاريخ</span>
+            <span class="value">29 ذو القعدة</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">التوقيت</span>
+            <span class="value">الساعة 8:00 مساءً</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">نوع المجلس</span>
+            <span class="value">عزاء — لطم — قراءة</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">المكان</span>
+            <span class="value">موكب يوسف الزهراء</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ليلة الجمعة -->
+      <div class="schedule-card animate-in">
+        <div class="schedule-card-header">
+          <div class="schedule-icon">✦</div>
+          <h3>المجلس الأسبوعي الحسيني</h3>
+        </div>
+        <div class="schedule-card-body">
+          <div class="schedule-row">
+            <span class="label">الموعد</span>
+            <span class="value">كل ليلة جمعة</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">التوقيت</span>
+            <span class="value">الساعة 8:00 مساءً</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">البرنامج</span>
+            <span class="value">عزاء + لطم + قراءة</span>
+          </div>
+          <div class="schedule-row">
+            <span class="label">التكرار</span>
+            <span class="value">أسبوعي دائم</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- أنواع المجلس -->
+      <div class="schedule-card animate-in">
+        <div class="schedule-card-header">
+          <div class="schedule-icon">📖</div>
+          <h3>مكوّنات المجلس الحسيني</h3>
+        </div>
+        <div class="schedule-card-body">
+          <div style="margin-top: 0.5rem;">
+            <p style="color:var(--white-dim);font-size:0.88rem;margin-bottom:1rem;">تشمل مجالس الموكب:</p>
+            <div>
+              <span class="badge">📿 القراءة الحسينية</span>
+              <span class="badge">🎵 اللطم الجماعي</span>
+              <span class="badge">🖤 مجالس العزاء</span>
+              <span class="badge">📜 المواكب المشية</span>
+              <span class="badge">🕯 إضاءة الشمع</span>
+              <span class="badge">🌿 الدعاء والتبرك</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ OCCASIONS ══════════════════════════════════ -->
+<section id="occasions">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">شعائر أهل البيت عليهم السلام</span>
+      <h2 class="section-title">مناسبات الموكب السنوية</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <p style="text-align:center;color:var(--white-dim);max-width:600px;margin:0 auto 2.5rem;font-size:0.95rem;" class="animate-in">
+      يشارك موكب يوسف الزهراء الحسيني في جميع مناسبات أهل البيت النبوي الكرام عليهم السلام على مدار العام الهجري
+    </p>
+
+    <div class="occasions-grid">
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🌑</span>
+        <h4>محرم الحرام</h4>
+        <p>إحياء ذكرى الإمام الحسين وثورة كربلاء الخالدة</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🕌</span>
+        <h4>صفر الخير</h4>
+        <p>مراسيم الأربعين وإحياء رحلة أهل البيت عليهم السلام</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🚶</span>
+        <h4>زيارة الأربعين</h4>
+        <p>المشاركة في المشي إلى كربلاء المقدسة</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">⭐</span>
+        <h4>مولد النبي الأكرم</h4>
+        <p>الاحتفال بالمولد النبوي الشريف صلى الله عليه وآله</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🌟</span>
+        <h4>أعياد الأئمة</h4>
+        <p>إحياء موالد الأئمة المعصومين عليهم السلام</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🤲</span>
+        <h4>ذكريات الاستشهاد</h4>
+        <p>إقامة مجالس العزاء في ذكريات استشهاد الأئمة</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">📿</span>
+        <h4>ليلة القدر</h4>
+        <p>إحياء ليالي القدر المباركة في شهر رمضان</p>
+      </div>
+      <div class="occasion-item animate-in">
+        <span class="occasion-icon">🌿</span>
+        <h4>المناسبات الأخرى</h4>
+        <p>كافة الشعائر الدينية التي تُحيي ذكرى أهل البيت</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ SERVICE ══════════════════════════════════ -->
+<section id="service">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">عطاء بلا حدود</span>
+      <h2 class="section-title">الخدمة الحسينية</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <p style="text-align:center;color:var(--white-dim);max-width:620px;margin:0 auto 2.5rem;font-size:0.95rem;" class="animate-in">
+      تمثل الخدمة الحسينية أسمى درجات التطوع والعطاء، يتشرف الموكب بتقديمها لزائري سيد الشهداء عليه السلام
+    </p>
+
+    <div class="service-grid">
+      <div class="service-card animate-in">
+        <span class="service-icon">🍵</span>
+        <h3>خدمة الزائرين</h3>
+        <p>تقديم الخدمات الكاملة للزائرين الكرام من ماء وطعام وراحة أثناء المواكب والمجالس</p>
+      </div>
+      <div class="service-card animate-in">
+        <span class="service-icon">🕯</span>
+        <h3>إقامة المجالس</h3>
+        <p>تجهيز مجالس العزاء وتوفير جميع المستلزمات من صوت وإضاءة وديكور حسيني</p>
+      </div>
+      <div class="service-card animate-in">
+        <span class="service-icon">🚌</span>
+        <h3>تنظيم المواكب</h3>
+        <p>تنظيم المواكب المشية وضمان سير الشعائر بشكل منظم ومهيب يليق بمقام الإمام</p>
+      </div>
+      <div class="service-card animate-in">
+        <span class="service-icon">🤝</span>
+        <h3>التطوع المجتمعي</h3>
+        <p>العمل التطوعي في خدمة المجتمع والمشاركة في الأنشطة الإنسانية الحسينية</p>
+      </div>
+      <div class="service-card animate-in">
+        <span class="service-icon">📢</span>
+        <h3>نشر الوعي الديني</h3>
+        <p>إحياء الثقافة الحسينية ونشر قيم الإمام الحسين وتعاليم أهل البيت عليهم السلام</p>
+      </div>
+      <div class="service-card animate-in">
+        <span class="service-icon">🩺</span>
+        <h3>الإسعافات الأولية</h3>
+        <p>توفير الدعم الطبي والإسعافي للزائرين أثناء المواكب والمناسبات الكبرى</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ JOIN ══════════════════════════════════ -->
+<section id="join">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">كن جزءاً من الخدمة</span>
+      <h2 class="section-title">الانضمام للموكب</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="join-wrapper">
+      <div class="join-info animate-in">
+        <h3>لماذا تنضم إلى موكب يوسف الزهراء؟</h3>
+        <p>
+          الانتساب لخدمة سيد الشهداء عليه السلام من أعظم الشرف وأجل الأعمال. تعال وكن جزءاً من هذا الركب المبارك.
+        </p>
+        <ul class="join-features">
+          <li>الفوز بشرف خدمة الإمام الحسين عليه السلام</li>
+          <li>الانتماء إلى مجتمع مؤمن ملتزم بالقيم الإسلامية</li>
+          <li>المشاركة في إحياء الشعائر الحسينية طوال العام</li>
+          <li>تعلم ثقافة أهل البيت عليهم السلام وقيمهم</li>
+          <li>المساهمة في العمل التطوعي والإنساني الحسيني</li>
+          <li>بناء صداقات روحية متينة في رحاب الإمام الحسين</li>
+        </ul>
+      </div>
+
+      <div class="form-card animate-in">
+        <div class="form-title">نموذج تسجيل المتطوعين</div>
+        <div id="joinForm">
+          <div class="form-group">
+            <label>الاسم الكامل *</label>
+            <input type="text" id="fname" placeholder="أدخل اسمك الكامل">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف *</label>
+            <input type="tel" id="fphone" placeholder="07XX XXX XXXX">
+          </div>
+          <div class="form-group">
+            <label>المنطقة السكنية</label>
+            <input type="text" id="farea" placeholder="الحي / المنطقة">
+          </div>
+          <div class="form-group">
+            <label>مجال الخدمة المفضل</label>
+            <select id="fservice">
+              <option value="">اختر التخصص</option>
+              <option>خدمة الزائرين</option>
+              <option>تنظيم المواكب</option>
+              <option>إعداد المجالس</option>
+              <option>الإعلام والتصوير</option>
+              <option>الإسعافات الأولية</option>
+              <option>أعمال عامة</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>كلمة أو رسالة (اختياري)</label>
+            <textarea id="fmsg" placeholder="شارك معنا دوافعك..."></textarea>
+          </div>
+          <button class="form-submit" onclick="submitForm()">
+            تسجيل الانضمام إلى الموكب
+          </button>
+        </div>
+        <div class="success-msg" id="successMsg">
+          ✦ جزاك الله خير الجزاء على تسجيلك. سنتواصل معك قريباً إن شاء الله ✦
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ DONATE ══════════════════════════════════ -->
+<section id="donate">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">ابتغاء رضا الله</span>
+      <h2 class="section-title">التبرعات الحسينية</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="donate-box animate-in">
+      <span class="donate-icon">🕯</span>
+      <h3>ادعم الخدمة الحسينية</h3>
+
+      <div class="donate-hadith">
+        "مَنْ أَطْعَمَ مُؤْمِناً حَتَّى يَشْبَعَهُ لَمْ يَعْلَمْ أَحَدٌ مِنَ الْخَلْقِ مَا لَهُ مِنَ الثَّوَابِ"
+        <br><small style="color:var(--gold-dim);font-size:0.8rem;">— الإمام الصادق عليه السلام</small>
+      </div>
+
+      <p>
+        تبرعاتكم الكريمة تصب مباشرة في دعم الخدمة الحسينية وتجهيز مجالس العزاء وتوفير الخدمات للزائرين. كل قرش تتبرع به هو سهم في ثواب إحياء ذكرى سيد الشهداء.
+      </p>
+
+      <p style="font-size:0.85rem;color:var(--gold-dim);margin-bottom:1.5rem;">
+        ✦ لمعرفة تفاصيل التبرع والتواصل المباشر تفضل بالضغط أدناه أو التواصل عبر حساب الموكب على الإنستغرام
+      </p>
+
+      <a href="#contact" class="donate-btn">التواصل للتبرع</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-divider"></div>
+
+<!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header animate-in">
+      <span class="section-tag">نحن بانتظارك</span>
+      <h2 class="section-title">التواصل مع الموكب</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="contact-center animate-in">
+      <p>
+        للتواصل مع موكب يوسف الزهراء الحسيني، للانضمام، للتبرع، أو لأي استفسار يتعلق بالمجالس والمناسبات — تواصل معنا عبر حسابنا الرسمي على إنستغرام
+      </p>
+
+      <a href="https://www.instagram.com" target="_blank" rel="noopener" class="instagram-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+        تابعنا على إنستغرام
+      </a>
+
+      <div class="contact-address">
+        <p><strong>🕌 موكب يوسف الزهراء الحسيني</strong></p>
+        <p style="color:var(--white-dim);">مدينة الناصرية – محافظة ذي قار – العراق</p>
+        <p style="color:var(--gold-dim);font-size:0.82rem;margin-top:0.5rem;">تأسس عام 2023 م – في خدمة سيد الشهداء عليه السلام</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ FOOTER ══════════════════════════════════ -->
+<footer>
+  <div class="gold-divider" style="margin-bottom:2rem;"></div>
+  <div class="footer-name">موكب يوسف الزهراء الحسيني</div>
+  <div class="footer-sub">الناصرية – ذي قار – العراق &nbsp;|&nbsp; منذ 2023 م</div>
+  <div style="color:var(--gold-dim);font-size:1rem;margin:0.75rem 0;letter-spacing:0.3em;">❧ ✦ ❧</div>
+  <div style="color:var(--white-dim);font-size:0.88rem;font-family:var(--font-classic);font-style:italic;">
+    "خدمة الحسين شرف لا ينتهي"
+  </div>
+  <div class="footer-bottom">يا حسين عليه السلام</div>
+</footer>
+
+<script>
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
+  // Form submission
+  function submitForm() {
+    const name = document.getElementById('fname').value.trim();
+    const phone = document.getElementById('fphone').value.trim();
+    if (!name || !phone) {
+      alert('يرجى إدخال الاسم ورقم الهاتف على الأقل');
+      return;
+    }
+    document.getElementById('joinForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
